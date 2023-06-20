@@ -1,0 +1,18 @@
+<h2>Контакты</h2>
+<p>На этой странице вы можете оставить свое сообщение</p>
+
+<form action="/contacts" method="POST">
+
+  <div class="form-group">
+    <label>Ваш e-mail</label>
+    <input name="email" type="text" class="form-control" placeholder="Ваш e-mail" value="<%= @email %>">
+  </div>
+
+<div class="form-floating">
+  <textarea name="message" class="form-control" placeholder="Оставьте свой комментарий" ></textarea>
+  <label for="floatingTextarea">Комментарии</label value="<%= @message %>">
+</div>
+
+<button type="submit" class="btn btn-primary">Отправить</button>
+
+</form>
