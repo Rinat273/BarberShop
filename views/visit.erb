@@ -22,14 +22,14 @@
 <p></p>
 
 <div class="form-floating">
-  <select  name="barber" class="form-select" aria-label="Floating label select example">
-    <option selected>Откройте список</option>
-    <option value="Walter White">Walter White</option>
-    <option value="Jessie Pinkman">Jessie Pinkman</option>
-    <option value="Gus Fring">Gus Fring</option>
+  <label>Ваш парикмахер</label>
+  <select  name="barber" class="form-control">
+    <option <%= @barber == 'Jessie Pinkman' ? 'selected' : '' %>>Jessie Pinkman</option>
+    <option <%= @barber == 'Walter White' ? 'selected' : '' %>>Walter White</option>
+    <option <%= @barber == 'Gus Fring' ? 'selected' : '' %>>Gus Fring</option>
   </select>
-  <label for="floatingSelect">Выберете себе парикмахера</label>
-</div>
+ </div>
+
 
 <p></p>
 <p></p>
