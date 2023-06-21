@@ -1,6 +1,19 @@
 <h2>Записаться</h2>
 <p>На этой странице вы можете записаться к нам в Barber Shop</p>
 
+<script type= "text/javascript">
+
+$(function() {
+
+// тут я могу написать любой javascript код, который исполнится // после загрузки страницы
+
+$('#color').simplecolorpicker();
+$('#datetimepicker').datetimepicker();
+
+});
+
+</script>
+
 <form action="/visit" method="POST">
 
   <div class="form-group">
@@ -15,7 +28,7 @@
 
   <div class="form-group">
     <label>Когда вас ждать?</label>
-    <input name="date_time" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @date_time %>">
+    <input id="datetimepicker" name="date_time" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @date_time %>">
   </div>
 
 <p></p>
