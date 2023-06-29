@@ -122,6 +122,10 @@ post '/contacts' do
 end
 
 get '/showusers' do
+	db = get_db
+
+	@result = db.execute 'select * from Users order by id desc'
+
 	#db.results_as_hash = true
 #db = SQLite3::Database.new 'barbershop.db'
 #db.execute 'select * from Users order by id desc' do |row|
@@ -129,6 +133,7 @@ get '/showusers' do
 #	puts '==========='
 #end
 	#erb "#{row}"
+	
 	erb :showusers
 end
 
