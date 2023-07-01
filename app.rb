@@ -51,22 +51,6 @@ configure do
 	seed_db db, ['Jessie Pinkman', 'Walter White', 'Gus Fring', 'Mike Ehrmantraut']	
 end
 
-def save_form_data_to_database
-	db = SQLite3::Database.new 'barbershop.db'
-	db.execute 'INSERT INTO
-	Users
-	(
-		username,
-		phone,
-		datestamp,
-		barber,
-		color
-	)
-	VALUES (?, ?, ?, ?, ?)', [@user_name, @phone, @date_time, @barber, @color]
-	db.close
-end
-
-
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
 end
@@ -118,8 +102,21 @@ post '/visit' do
 		return erb :visit
 	end
 
+	db = get_db
+	db.execute 'insert into
+		Users
+		(
+			username,
+			phone,
+			datestamp,
+			barber,
+			color
+		)
+		values (?, ?, ?, ?, ?)', [@user_name, @phone, @date_time, @barber, @color]
+	
 
-	erb "Ok, #{@user_name}, #{@phone}, #{@date_time}, #{@barber}, #{@color}"
+
+	erb "<h2>Спасибо, вы записались</h2>"
 	
 end
 
@@ -145,7 +142,6 @@ post '/contacts' do
 	
 	erb "Ok, #{@email}, #{@message}"
 
-	save_form_data_to_database
 
 end
 
